@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Fond -->
+  <rect width="100" height="100" fill="url(#gradient)" rx="10"/>
+  
+  <!-- Dégradé -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Cercle central -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Symbole de communication -->
+  <g transform="translate(50, 50)">
+    <!-- Enveloppe -->
+    <rect x="-18" y="-12" width="36" height="24" fill="white" stroke="white" stroke-width="1.5" rx="2"/>
+    <path d="M -18 -12 L 0 2 L 18 -12" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+    
+    <!-- Points d'accent -->
+    <circle cx="-10" cy="-20" r="2" fill="white" opacity="0.8"/>
+    <circle cx="10" cy="-20" r="2" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Texte -->
+  <text x="50" y="85" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">GI</text>
+</svg>

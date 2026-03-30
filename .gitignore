@@ -1,0 +1,43 @@
+# Gitignore pour Guerre Iran
+
+# Dossiers de stockage de données
+/data/
+/logs/
+
+# Fichiers de configuration locaux
+.env.local
+config.local.php
+
+# Cache et fichiers temporaires
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (si utilisé)
+node_modules/
+npm-debug.log
+
+# Fichiers de déploiement
+*.zip
+*.rar
+*.7z
+
+# Bases de données locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Fichiers de session
+session_*
+
+# Fichiers d'erreur
+error.log
+access.log
