@@ -1,0 +1,62 @@
+services:
+  # Service PHP/Apache
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guerre_iran_app
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+    networks:
+      - app_network
+
+  # Service MySQL
+  db:
+    image: mysql:8.0
+    container_name: guerre_iran_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: guerre_iran
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3305:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app_network
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  # Service PhpMyAdmin (optionnel - pour gérer la BD)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: guerre_iran_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_ABSOLUTE_URI: http://localhost:9001/
+    ports:
+      - "9001:80"
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge
